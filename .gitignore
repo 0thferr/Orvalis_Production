@@ -1,0 +1,14 @@
+**/bin/
+**/obj/
+**/node_modules/
+**/dist/
+.env
+.env.local
+*.user
+*.suo
+*.log
+.vs/
+TestResults/
+.dotnet-cli/
+.nuget-packages/
+.pnpm-store/

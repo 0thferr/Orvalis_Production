@@ -1,0 +1,20 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SequorProduction.Api", "backend\SequorProduction.Api\SequorProduction.Api.csproj", "{D01EF87C-61EF-4415-BB2F-129BF1014268}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SequorProduction.Tests", "backend\SequorProduction.Tests\SequorProduction.Tests.csproj", "{67C8B9E8-6E81-43AF-B07C-DC7B06561A14}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D01EF87C-61EF-4415-BB2F-129BF1014268}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D01EF87C-61EF-4415-BB2F-129BF1014268}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{67C8B9E8-6E81-43AF-B07C-DC7B06561A14}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{67C8B9E8-6E81-43AF-B07C-DC7B06561A14}.Debug|Any CPU.Build.0 = Debug|Any CPU
+	EndGlobalSection
+EndGlobal
