@@ -1,6 +1,6 @@
 # Sequor Production
 
-Aplicação de apontamento industrial feita para o desafio Sequor. O projeto tem API ASP.NET Core em C#, persistência SQL Server com EF Core Code First e interface React/Vite que consome a API real.
+Aplicação de apontamento industrial. O projeto tem API ASP.NET Core em C#, persistência SQL Server com EF Core Code First e interface React/Vite que consome a API real.
 
 ## Estrutura
 
