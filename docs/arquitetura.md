@@ -46,4 +46,4 @@ sequenceDiagram
   S-->>R: Resposta status/type/description
 ```
 
-O Service verifica a existência do usuário e da ordem, o período cadastrado para o usuário, quantidade maior que zero e até o limite da ordem, associação do material ao produto e ciclo positivo. Ciclo menor que o padrão é aceito e informado na descrição. A quantidade acumulada não é validada conforme o enunciado. A migration cria esquema e índices; o inicializador insere registros de demonstração apenas se as tabelas correspondentes estiverem vazias.
+O Service verifica a existência do usuário e da ordem, o período cadastrado para o usuário, quantidade maior que zero e até o limite da ordem, associação do material ao produto e ciclo positivo. Ciclo menor que o padrão é aceito e informado na descrição. O limite de quantidade vale para cada apontamento. As migrations criam o esquema e os índices. O inicializador grava toda a carga de demonstração em uma única operação quando o banco está vazio.

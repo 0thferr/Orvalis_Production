@@ -1,7 +1,7 @@
 using Microsoft.EntityFrameworkCore;
-using SequorProduction.Api.Models;
+using OrvalisProduction.Api.Models;
 
-namespace SequorProduction.Api.Data;
+namespace OrvalisProduction.Api.Data;
 public sealed class ProductionDbContext(DbContextOptions<ProductionDbContext> options) : DbContext(options)
 {
     public DbSet<Order> Orders => Set<Order>();

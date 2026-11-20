@@ -1,4 +1,4 @@
-namespace SequorProduction.Api.Models;
+namespace OrvalisProduction.Api.Models;
 public sealed class ProductMaterial
 {
     public string ProductCode { get; set; } = "";

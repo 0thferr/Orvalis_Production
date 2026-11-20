@@ -1,18 +1,21 @@
 using Microsoft.EntityFrameworkCore;
-using SequorProduction.Api.Data;
-using SequorProduction.Api.Services;
+using Microsoft.AspNetCore.Mvc;
+using OrvalisProduction.Api.Data;
+using OrvalisProduction.Api.DTOs;
+using OrvalisProduction.Api.Services;
 
 var builder = WebApplication.CreateBuilder(args);
+var productionConnection = builder.Configuration.GetConnectionString("Production")
+    ?? throw new InvalidOperationException("A conexão Production precisa estar configurada.");
+
 builder.Services.AddControllers().ConfigureApiBehaviorOptions(options =>
 {
-    options.InvalidModelStateResponseFactory = _ => new Microsoft.AspNetCore.Mvc.BadRequestObjectResult(
-        new SequorProduction.Api.DTOs.OperationResponse(201, "E", "Falha no apontamento - Dados da requisição inválidos!"));
+    options.InvalidModelStateResponseFactory = _ => new BadRequestObjectResult(
+        new OperationResponse(201, "E", "Falha no apontamento - Dados da requisição inválidos!"));
 });
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-builder.Services.AddDbContext<ProductionDbContext>(options => options.UseSqlServer(
-    builder.Configuration.GetConnectionString("Production") ??
-    "Server=localhost\\SQLEXPRESS;Database=SequorProduction;Trusted_Connection=True;TrustServerCertificate=True;"));
+builder.Services.AddDbContext<ProductionDbContext>(options => options.UseSqlServer(productionConnection));
 builder.Services.AddScoped<ProductionService>();
 builder.Services.AddCors(options => options.AddPolicy("React", policy => policy
     .WithOrigins(builder.Configuration.GetSection("Cors:Origins").Get<string[]>() ?? ["http://localhost:5173"])

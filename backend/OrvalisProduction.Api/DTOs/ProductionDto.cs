@@ -1,4 +1,4 @@
-namespace SequorProduction.Api.DTOs;
+namespace OrvalisProduction.Api.DTOs;
 public sealed record ProductionDto(string Order, DateTime Date, decimal Quantity, string MaterialCode, decimal CycleTime);
 public sealed record ProductionsResponse(IReadOnlyList<ProductionDto> Productions);
 public sealed record SetProductionRequest
