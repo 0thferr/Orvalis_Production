@@ -1,8 +1,8 @@
 using Microsoft.AspNetCore.Mvc;
-using SequorProduction.Api.DTOs;
-using SequorProduction.Api.Services;
+using OrvalisProduction.Api.DTOs;
+using OrvalisProduction.Api.Services;
 
-namespace SequorProduction.Api.Controllers;
+namespace OrvalisProduction.Api.Controllers;
 [ApiController]
 [Route("api/orders")]
 public sealed class OrdersController(ProductionService service) : ControllerBase

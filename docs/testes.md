@@ -4,7 +4,9 @@
 
 Os testes xUnit cobrem consulta de ordens; histórico com e sem resultados; gravação válida; e-mail inexistente; ordem inexistente; quantidade zero ou acima da ordem; material incompatível; datas antes e depois do período; ciclo zero; e ciclo inferior ao padrão aceito com aviso.
 
-Execução: `dotnet test SequorProduction.sln`. Resultado nesta entrega: 13 aprovados, 0 falhas. Os testes de serviço usam banco EF InMemory descartável para isolamento; a aplicação real usa SQL Server. Também foi verificada uma gravação no SQL Server Express por consulta SQL direta.
+A carga de demonstração também é testada em um banco vazio, na reinicialização e em um banco com registros existentes.
+
+Execute `dotnet test OrvalisProduction.sln` na raiz. Os testes automatizados usam bancos EF InMemory isolados. Para validar as migrations e a persistência em SQL Server, siga o roteiro abaixo em um banco de teste.
 
 ## Roteiro manual (Swagger/Postman)
 
@@ -14,7 +16,7 @@ Execução: `dotnet test SequorProduction.sln`. Resultado nesta entrega: 13 apro
 
 ### Consultar histórico
 
-`GET http://localhost:5000/api/orders/GetProduction?email=teste@sequor.com.br` — esperado HTTP 200 e registros de demonstração. Para usuário sem histórico, esperado `{"productions":[]}`.
+`GET http://localhost:5000/api/orders/GetProduction?email=teste@orvalis.example` — esperado HTTP 200 e registros de demonstração. Para usuário sem histórico, esperado `{"productions":[]}`.
 
 ### Apontamento válido
 
@@ -22,7 +24,7 @@ Execução: `dotnet test SequorProduction.sln`. Resultado nesta entrega: 13 apro
 
 ```json
 {
-  "email":"teste@sequor.com.br", "order":"111", "productionDate":"2026-11-04",
+  "email":"teste@orvalis.example", "order":"111", "productionDate":"2026-11-04",
   "productionTime":"10:30:00", "quantity":10, "materialCode":"aaa", "cycleTime":35.5
 }
 ```
@@ -35,4 +37,4 @@ Repita o JSON válido alterando: e-mail para desconhecido; ordem para `999`; qua
 
 ### Persistência SQL
 
-Após um apontamento válido, consulte o histórico pelo e-mail ou execute `SELECT * FROM Production WHERE Email='teste@sequor.com.br' ORDER BY Date DESC;` no SQL Server. O novo registro deve constar.
+Após um apontamento válido, consulte o histórico pelo e-mail ou execute `SELECT * FROM Production WHERE Email='teste@orvalis.example' ORDER BY Date DESC;` no SQL Server. O novo registro deve constar.

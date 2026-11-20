@@ -1,7 +1,7 @@
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace SequorProduction.Api.Data.Migrations;
+namespace OrvalisProduction.Api.Data.Migrations;
 [DbContext(typeof(ProductionDbContext))]
 [Migration("202611050001_InitialCreate")]
 public sealed class InitialCreate : Migration

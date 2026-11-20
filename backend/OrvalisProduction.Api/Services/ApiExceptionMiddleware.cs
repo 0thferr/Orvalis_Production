@@ -1,6 +1,6 @@
 using System.Text.Json;
 
-namespace SequorProduction.Api.Services;
+namespace OrvalisProduction.Api.Services;
 public sealed class ApiExceptionMiddleware(RequestDelegate next, ILogger<ApiExceptionMiddleware> logger)
 {
     public async Task InvokeAsync(HttpContext context)
